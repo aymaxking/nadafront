@@ -1,0 +1,274 @@
+<div class="card">
+    <div class="card-body panel-body table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Budget</th>
+                    <th scope="col">Actions</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let o of service.comptes">
+                    <td>{{o.titre}}</td>
+                    <td>{{o.description}}</td>
+                    <td>{{o.budget}}</td>
+                    <td class="action-list">
+                        <button class="btn text-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop-2"
+                            (click)="titre.value=o.titre;
+                                          description.value=o.description;
+                                          budget.value=o.budget+'';
+                                          service.compte=o">
+
+                            Edit</button>
+                        <div id="staticBackdrop-2" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div id="modaldialog-1" class="modal-dialog">
+                                <div id="modalcontent-1" class="modal-content">
+                                    <div id="modalheader-1" class="modal-header">
+                                        <h1 id="staticBackdropLabel-1" class="modal-title"><strong>Modifier un
+                                                compte</strong></h1><button class="btn btn-primary btn-close"
+                                            type="button" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div id="modalbody-1" class="modal-body">
+                                        <div class="card shadow">
+                                            <div class="card-body">
+                                                <form ngForm="form">
+                                                    <div class="row">
+
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="col-12" style="text-align: left;">
+                                                                <label class="form-label"><strong>Titre</strong></label>
+                                                                <input type="text" [(ngModel)]="service.compte.titre"
+                                                                    name="titre" class="form-control" #titre
+                                                                    [value]="titre" value="{{o.titre}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="col-12" style="text-align: left;"><label
+                                                                    class="form-label"><strong>Description
+                                                                        :</strong></label>
+                                                                <input type="text"
+                                                                    [(ngModel)]="service.compte.description"
+                                                                    name="description" class="form-control" #description
+                                                                    [value]="description" value="{{o.description}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="mb-3" style="text-align: left;"><label
+                                                                    class="form-label" for="city"><strong>Budget
+                                                                        :</strong></label>
+
+                                                                <input type="text" [(ngModel)]="service.compte.budget"
+                                                                    name="budget" class="form-control" #budget
+                                                                    [value]="budget" value="{{o.budget}}">
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div id="modal-footer-1" class="modal-footer">
+                                                        <button class="btn btn-primary btn btn-secondary" type="button"
+                                                            data-bs-dismiss="modal">Fermer</button>
+                                                        <button class="btn btn-primary" (click)="modifier()"
+                                                            type="button" data-bs-dismiss="modal">Enregistrer</button>
+                                                    </div>
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        &nbsp;
+
+                        <button class="btn text-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop-11"
+                            (click)="service.compte=o">
+                            Ajouter Un Participant</button>
+                        <div id="staticBackdrop-11" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div id="modaldialog-1" class="modal-dialog">
+                                <div id="modalcontent-1" class="modal-content">
+                                    <div id="modalheader-1" class="modal-header">
+                                        <h3 id="staticBackdropLabel-1" class="modal-title" style="align-items: center"><strong>Ajout de participant</strong></h3><button class="btn btn-primary btn-close"
+                                            type="button" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div id="modalbody-1" class="modal-body">
+                                        <div class="card shadow">
+                                            <div class="card-body">
+                                                <form ngForm="form">
+                                                    <div class="row">
+
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="col-12" style="text-align: left;">
+                                                                <label class="form-label"><strong>Nom</strong></label>
+                                                                <input type="text"class="form-control" #nom>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="col-12" style="text-align: left;"><label
+                                                                    class="form-label"><strong>Prenom
+                                                                        :</strong></label>
+                                                                <input type="text"
+                                                                class="form-control" #prenom>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="col-12" style="text-align: left;">
+                                                                <label class="form-label"><strong>Tel</strong></label>
+                                                                <input type="text"
+                                                                class="form-control" #telephone>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="col-12" style="text-align: left;"><label
+                                                                    class="form-label"><strong>Email
+                                                                        :</strong></label>
+                                                                <input type="text"
+                                                                class="form-control" #email>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <br>
+                                                    <div id="modal-footer-1" class="modal-footer">
+                                                        <button class="btn btn-primary btn btn-secondary" type="button"
+                                                            data-bs-dismiss="modal">Fermer</button>
+                                                        <button class="btn btn-primary" (click)="service.participant.nom=nom.value;
+                                                        service.participant.prenom=prenom.value;
+                                                        service.participant.telephone=telephone.value;
+                                                        service.participant.email=email.value;
+                                                        addparticipant()"
+                                                            type="button" data-bs-dismiss="modal">Enregistrer</button>
+                                                    </div>
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        &nbsp; <button class="btn text-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop-3"
+                                       (click)="
+                                     service.compte=o">
+
+                      Consulter Les Participants</button>
+                      <div id="staticBackdrop-3" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"
+                           tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div id="modaldialog-1" class="modal-dialog">
+                          <div id="modalcontent-1" class="modal-content">
+                            <div id="modalheader-1" class="modal-header">
+                              <h3 id="staticBackdropLabel-1" class="modal-title"><strong>Les Participants - {{o.titre}}</strong></h3><button class="btn btn-primary btn-close"
+                                                            type="button" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div id="modalbody-1" class="modal-body">
+                              <div class="card shadow">
+                                <div class="card-body">
+                                  <form ngForm="form">
+                                    <table class="table table-striped">
+                                      <thead>
+                                      <tr>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Telephone</th>
+<!--                                        <th scope="col">Email</th>-->
+                                        <th scope="col">Depenses</th>
+                                        <th scope="col">Actions</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      <tr *ngFor="let p of service.compte.participants">
+                                        <td>{{p.nom+" "+p.prenom}}</td>
+                                        <td>{{p.telephone}}</td>
+<!--                                        <td>{{p.email}}</td>-->
+                                        <td>{{p.depenses}} DH</td>
+                                        <td><button class="btn text-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop-13" (click)="service.par=p;">Ajouter Une Depense</button></td>
+                                      </tr>
+                                      </tbody>
+                                    </table>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      &nbsp;
+
+                      <div id="staticBackdrop-13" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"
+                           tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div id="modaldialog-1" class="modal-dialog">
+                          <div id="modalcontent-1" class="modal-content">
+                            <div id="modalheader-1" class="modal-header">
+                              <h3 id="staticBackdropLabel-1" class="modal-title" style="align-items: center"><strong>Ajouter Une Depense</strong></h3><button class="btn btn-primary btn-close"
+                                                                                                                                                               type="button" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div id="modalbody-1" class="modal-body">
+                              <div class="card shadow">
+                                <div class="card-body">
+                                  <form ngForm="form">
+                                    <div class="row">
+
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                      <div class="col">
+                                        <div class="col-12" style="text-align: left;">
+                                          <label class="form-label"><strong>Montant</strong></label>
+                                          <input type="text"class="form-control" #montant>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                    <br>
+
+                                    <br>
+                                    <div id="modal-footer-1" class="modal-footer">
+                                      <button class="btn btn-primary btn btn-secondary" type="button"
+                                              data-bs-dismiss="modal">Fermer</button>
+                                      <button class="btn btn-primary" (click)="service2.depense.montant=montant.value.toString();
+                                                        adddepense()"
+                                              type="button" data-bs-dismiss="modal">Enregistrer</button>
+                                    </div>
+
+
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                        <button (click)="service.compte=o;supprimer()" class="btn text-danger">Supprimer</button>
+                </tr>
+                <tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

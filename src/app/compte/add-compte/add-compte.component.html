@@ -1,0 +1,35 @@
+
+<br>
+<div class="container-fluid">
+
+    <div class="card" style="align-items: center">
+        <div class="card-header">
+          Ajout Un Compte
+        </div>
+        <div class="card-body" >
+            <form>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label >Titre</label>
+                    <input type="text"  [(ngModel)]="service.compte.titre" name="titre" class="form-control" class="form-control" >
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">description</label>
+                  <input type="text"  [(ngModel)]="service.compte.description" name="description" class="form-control" id="inputAddress" >
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress2">Budget</label>
+                  <input type="text"  [(ngModel)]="service.compte.budget" name="budget" class="form-control" id="inputAddress2" >
+                </div>
+                <br>
+
+                <button type="submit" (click)="submit()" class="btn btn-primary">Ajouter</button>
+              </form>
+
+
+        </div>
+      </div>
+
+</div>
